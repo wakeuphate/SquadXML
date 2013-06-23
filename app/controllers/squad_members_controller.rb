@@ -1,18 +1,14 @@
 class SquadMembersController < ApplicationController
 
-  def index
-    @squad_members = SquadMember.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-    end
-  end
+  before_filter :authenticate_user!
 
   def show
     @squad_member = SquadMember.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
+    if current_user == @squad_member.user || current_user.admin?
+      respond_to do |format|
+        format.html # show.html.erb
+      end
     end
   end
 
@@ -26,6 +22,11 @@ class SquadMembersController < ApplicationController
 
   def edit
     @squad_member = SquadMember.find(params[:id])
+    if current_user == @squad_member.user || current_user.admin?
+      respond_to do |format|
+        format.html
+      end
+    end
   end
 
   def create
@@ -43,21 +44,25 @@ class SquadMembersController < ApplicationController
   def update
     @squad_member = SquadMember.find(params[:id])
 
-    respond_to do |format|
-      if @squad_member.update_attributes(params[:squad_member])
-        format.html { redirect_to @squad_member, notice: 'Squad member was successfully updated.' }
-      else
-        format.html { render action: "edit" }
+    if current_user == @squad_member.user || current_user.admin?
+      respond_to do |format|
+        if @squad_member.update_attributes(params[:squad_member])
+          format.html { redirect_to @squad_member, notice: 'Squad member was successfully updated.' }
+        else
+          format.html { render action: "edit" }
+        end
       end
     end
   end
 
   def destroy
     @squad_member = SquadMember.find(params[:id])
-    @squad_member.destroy
+    if current_user == @squad_member.user || current_user.admin?
+      @squad_member.destroy
 
-    respond_to do |format|
-      format.html { redirect_to squad_members_url }
+      respond_to do |format|
+        format.html { redirect_to squad_members_url }
+      end
     end
   end
 end
