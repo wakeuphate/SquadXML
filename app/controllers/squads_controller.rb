@@ -1,6 +1,6 @@
 class SquadsController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show]
   before_filter do
     if params[:action] != 'show'
       redirect_to login_path unless current_user && current_user.admin?
@@ -19,7 +19,9 @@ class SquadsController < ApplicationController
     @squad = Squad.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      if current_user
+        format.html # show.html.erb
+      end
       format.xml { render :layout => false }
     end
   end
