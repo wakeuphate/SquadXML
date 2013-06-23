@@ -1,0 +1,27 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title SquadXML by Wakeuphate
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    = stylesheet_link_tag "simple", :media => "all"
+    = csrf_meta_tags
+    :css
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+  %body
+    .container
+      - if notice
+        .alert.alert-success
+          %strong Notice!
+          = notice
+      - if alert
+        .alert.alert-error
+          %strong Warning!
+          = alert
+      = yield
+    / /container
+    = javascript_include_tag "application"

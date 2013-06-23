@@ -19,6 +19,10 @@
   %b Title:
   = @squad.title
 
+= link_to 'Edit', edit_squad_path(@squad)
+\|
+= link_to 'Back', squads_path
+
 %hr/
 %h2 Squad Members:
 %table
@@ -44,8 +48,3 @@
       %td= link_to 'Show', squad_member
       %td= link_to 'Edit', edit_squad_member_path(squad_member)
       %td= link_to 'Destroy', squad_member, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-
-= link_to 'Edit', edit_squad_path(@squad)
-\|
-= link_to 'Back', squads_path
