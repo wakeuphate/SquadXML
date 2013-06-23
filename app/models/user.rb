@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_one :squad
+  has_one :squad_member
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

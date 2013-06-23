@@ -2,6 +2,7 @@
 
 %table
   %tr
+    %th Squad
     %th Uid
     %th Nickname
     %th Name
@@ -14,6 +15,7 @@
 
   - @squad_members.each do |squad_member|
     %tr
+      %td= squad_member.squad.name
       %td= squad_member.uid
       %td= squad_member.nickname
       %td= squad_member.name
