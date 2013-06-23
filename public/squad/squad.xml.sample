@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE squad SYSTEM "squad.dtd">
+<?xml-stylesheet href="squad.xsl?" type="text/xsl"?>
+<squad nick="">
+  <name></name>
+  <email></email>
+  <web></web>
+  <picture>logo.paa</picture>
+  <title></title>
+</squad>
