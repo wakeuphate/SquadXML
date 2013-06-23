@@ -11,7 +11,7 @@ xml.squad(:nick => @squad.tag) {
       xml.name sm.name
       xml.email (sm.email.blank?) ? 'n/a' : sm.email
       xml.icq (sm.icq.blank?) ? 'n/a' : sm.icq
-      xml.remark (sm.remark) ? 'n/a' : sm.remark
+      xml.remark (sm.remark.blank?) ? 'n/a' : sm.remark
     }
   end
 }
