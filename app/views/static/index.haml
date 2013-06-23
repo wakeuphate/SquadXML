@@ -1,4 +1,10 @@
 .hero-unit
   %h1 HI 404 MEMBER!
-  %p Create yourself a Squad Member at the top there and then just paste this into your ARMA 2 Squad XML area!:
-  %p http://squadxml-404.herokuapp.com/squads/1.xml
+  - if current_user.squad_member
+    %p Well done! You're now a member on the squad.xml - Just paste the following into your "Player Profile" section in-game:
+    %h3 http://squadxml-404.herokuapp.com/squads/1.xml
+  - else
+    %p
+      You still need to
+      = link_to "Create a Squad Member Profile", new_squad_member_path
+      \! When you've done that, come back here and we'll have your Squad.xml link ready!

@@ -4,7 +4,7 @@ xml.squad(:nick => @squad.tag) {
   xml.name @squad.name
   xml.email (@squad.email.blank?) ? 'n/a' : @squad.email
   xml.web @squad.website
-  xml.picture "http://squadxml-404.herokuapp.com/#{@squad.picture}"
+  xml.picture @squad.picture
   xml.title (@squad.title.blank?) ? 'n/a' : @squad.title
   @squad.squad_members.each do |sm|
     xml.member(:id => sm.uid, :nick => sm.nickname) {

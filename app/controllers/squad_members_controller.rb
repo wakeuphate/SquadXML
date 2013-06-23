@@ -41,7 +41,7 @@ class SquadMembersController < ApplicationController
 
     respond_to do |format|
       if @squad_member.save
-        format.html { redirect_to @squad_member, notice: 'Squad member was successfully created.' }
+        format.html { redirect_to root_path, :notice => 'Squad member was successfully created.' }
       else
         format.html { render action: "new" }
       end
@@ -55,7 +55,7 @@ class SquadMembersController < ApplicationController
     if current_user == @squad_member.user || current_user.admin?
       respond_to do |format|
         if @squad_member.update_attributes(params[:squad_member])
-          format.html { redirect_to @squad_member, notice: 'Squad member was successfully updated.' }
+          format.html { redirect_to root_path, :notice => 'Squad member was successfully updated.' }
         else
           format.html { render action: "edit" }
         end
