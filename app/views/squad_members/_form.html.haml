@@ -1,0 +1,13 @@
+= simple_form_for(@squad_member) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :uid
+    = f.input :nickname
+    = f.input :name
+    = f.input :email
+    = f.input :icq
+    = f.input :remark
+
+  .form-actions
+    = f.button :submit

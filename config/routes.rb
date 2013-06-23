@@ -1,4 +1,7 @@
 SquadXML::Application.routes.draw do
+  resources :squad_members
+
+
   resources :squads
 
 

@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Uid:
+  = @squad_member.uid
+%p
+  %b Nickname:
+  = @squad_member.nickname
+%p
+  %b Name:
+  = @squad_member.name
+%p
+  %b Email:
+  = @squad_member.email
+%p
+  %b Icq:
+  = @squad_member.icq
+%p
+  %b Remark:
+  = @squad_member.remark
+
+= link_to 'Edit', edit_squad_member_path(@squad_member)
+\|
+= link_to 'Back', squad_members_path
