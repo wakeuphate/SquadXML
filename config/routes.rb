@@ -2,7 +2,7 @@ SquadXML::Application.routes.draw do
   resources :squads
   resources :squad_members
 
-  root :to => "squads#index"
+  root :to => "application#index"
 
   devise_for :users
   devise_scope :user do

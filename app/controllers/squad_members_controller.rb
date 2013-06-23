@@ -15,13 +15,18 @@ class SquadMembersController < ApplicationController
   def new
     @squad_member = SquadMember.new
 
-    respond_to do |format|
-      format.html # new.html.erb
+    if current_user.squad_member
+      redirect_to root_path
+    else
+      respond_to do |format|
+        format.html # new.html.erb
+      end
     end
   end
 
   def edit
     @squad_member = SquadMember.find(params[:id])
+
     if current_user == @squad_member.user || current_user.admin?
       respond_to do |format|
         format.html
@@ -31,6 +36,8 @@ class SquadMembersController < ApplicationController
 
   def create
     @squad_member = SquadMember.new(params[:squad_member])
+    @squad_member.squad = Squad.first # Lock to 404
+    @squad_member.user = current_user
 
     respond_to do |format|
       if @squad_member.save
@@ -43,6 +50,7 @@ class SquadMembersController < ApplicationController
 
   def update
     @squad_member = SquadMember.find(params[:id])
+    @squad_member.squad = Squad.first # Lock to 404
 
     if current_user == @squad_member.user || current_user.admin?
       respond_to do |format|

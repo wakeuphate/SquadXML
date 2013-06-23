@@ -28,8 +28,11 @@
                 - if current_user.admin?
                   - if current_user.squad
                     = link_to "Manage Squad: #{current_user.squad.tag}", squad_path(current_user.squad)
-                  - else
-                    = link_to 'Create a Squad', new_squad_path
+              %li
+                - if current_user.squad_member
+                  = link_to "Update My Info", squad_member_path(current_user.squad_member)
+                - else
+                  = link_to "Create My Squad Member", new_squad_member_path
           / /.nav-collapse
     .container
       - if notice

@@ -46,6 +46,7 @@ class SquadsController < ApplicationController
 
   def create
     @squad = Squad.new(params[:squad])
+    @squad.user = current_user
 
     if current_user.admin?
       respond_to do |format|
