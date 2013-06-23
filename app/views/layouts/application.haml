@@ -24,10 +24,11 @@
           .nav-collapse.collapse
             %ul.nav
               %li
-                - if current_user.squad
-                  = link_to "Manage Squad: #{current_user.squad.tag}", squad_path(current_user.squad)
-                - else
-                  = link_to 'Create a Squad', new_squad_path
+                - if current_user.admin?
+                  - if current_user.squad
+                    = link_to "Manage Squad: #{current_user.squad.tag}", squad_path(current_user.squad)
+                  - else
+                    = link_to 'Create a Squad', new_squad_path
           / /.nav-collapse
     .container
       - if notice

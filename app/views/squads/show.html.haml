@@ -19,32 +19,31 @@
   %b Title:
   = @squad.title
 
-= link_to 'Edit', edit_squad_path(@squad)
-\|
-= link_to 'Back', squads_path
+- if current_user.admin?
+  = link_to 'Edit', edit_squad_path(@squad)
 
-%hr/
-%h2 Squad Members:
-%table
-  %tr
-    %th Uid
-    %th Nickname
-    %th Name
-    %th Email
-    %th Icq
-    %th Remark
-    %th
-    %th
-    %th
-
-  - @squad.squad_members.each do |squad_member|
+  %hr/
+  %h2 Squad Members:
+  %table
     %tr
-      %td= squad_member.uid
-      %td= squad_member.nickname
-      %td= squad_member.name
-      %td= squad_member.email
-      %td= squad_member.icq
-      %td= squad_member.remark
-      %td= link_to 'Show', squad_member
-      %td= link_to 'Edit', edit_squad_member_path(squad_member)
-      %td= link_to 'Destroy', squad_member, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Uid
+      %th Nickname
+      %th Name
+      %th Email
+      %th Icq
+      %th Remark
+      %th
+      %th
+      %th
+
+    - @squad.squad_members.each do |squad_member|
+      %tr
+        %td= squad_member.uid
+        %td= squad_member.nickname
+        %td= squad_member.name
+        %td= squad_member.email
+        %td= squad_member.icq
+        %td= squad_member.remark
+        %td= link_to 'Show', squad_member
+        %td= link_to 'Edit', edit_squad_member_path(squad_member)
+        %td= link_to 'Destroy', squad_member, :method => :delete, :data => { :confirm => 'Are you sure?' }

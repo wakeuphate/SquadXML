@@ -1,10 +1,17 @@
 class SquadsController < ApplicationController
 
-  def index
-    @squads = Squad.all
+  before_filter :authenticate_user!
+  before_filter do
+    if params[:action] != 'show'
+      redirect_to login_path unless current_user && current_user.admin?
+    end
+  end
 
-    respond_to do |format|
-      format.html # index.html.erb
+  def index
+    if current_user.squad
+      redirect_to squad_path(current_user.squad)
+    else
+      redirect_to new_squad_path
     end
   end
 
