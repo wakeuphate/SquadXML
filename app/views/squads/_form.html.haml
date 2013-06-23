@@ -1,0 +1,13 @@
+= simple_form_for(@squad) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :tag
+    = f.input :email
+    = f.input :website
+    = f.input :picture
+    = f.input :title
+
+  .form-actions
+    = f.button :submit

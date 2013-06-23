@@ -1,0 +1,29 @@
+%h1 Listing squads
+
+%table
+  %tr
+    %th Name
+    %th Tag
+    %th Email
+    %th Website
+    %th Picture
+    %th Title
+    %th
+    %th
+    %th
+
+  - @squads.each do |squad|
+    %tr
+      %td= squad.name
+      %td= squad.tag
+      %td= squad.email
+      %td= squad.website
+      %td= squad.picture
+      %td= squad.title
+      %td= link_to 'Show', squad
+      %td= link_to 'Edit', edit_squad_path(squad)
+      %td= link_to 'Destroy', squad, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Squad', new_squad_path

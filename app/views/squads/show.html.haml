@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @squad.name
+%p
+  %b Tag:
+  = @squad.tag
+%p
+  %b Email:
+  = @squad.email
+%p
+  %b Website:
+  = @squad.website
+%p
+  %b Picture:
+  = @squad.picture
+%p
+  %b Title:
+  = @squad.title
+
+= link_to 'Edit', edit_squad_path(@squad)
+\|
+= link_to 'Back', squads_path

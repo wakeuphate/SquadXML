@@ -1,4 +1,7 @@
 SquadXML::Application.routes.draw do
+  resources :squads
+
+
   devise_for :users
   devise_scope :user do
     match "/login" => "devise/sessions#new"
