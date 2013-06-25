@@ -1,6 +1,6 @@
 class SquadsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:show]
+  before_filter :authenticate_user!, :except => [:show, :logo]
   before_filter do
     if params[:action] != 'show'
       redirect_to login_path unless current_user && current_user.admin?
