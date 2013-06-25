@@ -7,6 +7,10 @@ class SquadsController < ApplicationController
     end
   end
 
+  def logo
+    send_file 'public/squad/logo.paa', :type => "application/octet-stream", :x_sendfile => true
+  end
+
   def index
     if current_user.squad
       redirect_to squad_path(current_user.squad)

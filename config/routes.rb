@@ -1,4 +1,5 @@
 SquadXML::Application.routes.draw do
+  match '/squads/404.paa' => 'squads#logo'
   resources :squads
   resources :squad_members
 
