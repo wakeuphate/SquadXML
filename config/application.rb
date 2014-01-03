@@ -39,7 +39,7 @@ module SquadXML
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    config.assets.precompile += %w( *.css *.js )
+    config.assets.precompile += %w( application.css application.js )
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
