@@ -15,8 +15,8 @@ SquadXML::Application.configure do
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
-  # Precompile all assets, except those that start with underscore
-  config.assets.precompile << /(^[^\/]|\/[^])[^\/]*$/
+  # Only what we need.
+  config.assets.precompile += %w( application.js application.css )
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
