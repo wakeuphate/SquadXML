@@ -64,4 +64,9 @@ SquadXML::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+
+  # Remove this if you are sending mail! You'll need to if you want forgot password to work.
+  config.action_mailer.delivery_method = :test
+
 end
