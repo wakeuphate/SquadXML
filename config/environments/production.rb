@@ -67,6 +67,8 @@ SquadXML::Application.configure do
 
 
   # Remove this if you are sending mail! You'll need to if you want forgot password to work.
+  config.action_mailer.default_url_options = { :host => 'localhost' }
   config.action_mailer.delivery_method = :test
+
 
 end
