@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623123239) do
+ActiveRecord::Schema.define(:version => 20140603225933) do
 
   create_table "squad_members", :force => true do |t|
     t.integer  "uid"
