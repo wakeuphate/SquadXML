@@ -67,13 +67,13 @@ SquadXML::Application.configure do
 
 
   # Remove this if you are sending mail! You'll need to if you want forgot password to work.
-  config.action_mailer.default_url_options = { :host => 'squadxml-wong.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'squadxml-404.herokuapp.com' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => 'squadxml-wong.herokuapp.com',
+      :domain               => 'squadxml-404.herokuapp.com',
       :user_name            => ENV['GMAIL_USER'],
       :password             => ENV['GMAIL_PASS'],
       :authentication       => 'plain',

@@ -8,7 +8,7 @@ class SquadsController < ApplicationController
   end
 
   def logo
-    send_file 'public/squad/wong.paa', :type => "application/octet-stream", :x_sendfile => true
+    send_file 'public/squad/404.paa', :type => "application/octet-stream", :x_sendfile => true
   end
 
   def index
